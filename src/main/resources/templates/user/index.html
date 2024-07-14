@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Проект "Есть идея"</title>
+</head>
+<body style="background-color: #f5f5f5;">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="people-circle" viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+    </symbol>
+    <symbol id="collection" viewBox="0 0 16 16">
+        <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"/>
+    </symbol>
+    <symbol id="geo-fill" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
+    </symbol>
+</svg>
+
+<div class="container px-3" id="featured-3">
+    <h1 class="fw-bold pt-5 pb-5 text-center">Проект "Есть идея"</h1>
+    <div th:if="${param.success}" class="text-center text-success alert-success border-success">
+        <p style="color: forestgreen">Форма успешно создана!</p>
+    </div>
+
+    <p class="fs-4 mx-2 pt-2 text-center lead">Как говорится, <em>"Одна голова хорошо, а две лучше!"</em>, а еще лучше когда умных голов больше 300!</p>
+    <p class="fs-4 mx-2 pb-2 text-center lead">Каждый из вас, выполняя свои задачи, точно знает и понимает, что можно изменить и улучшить,<br/>чтобы сократить трудовые и финансовые затраты как вашего подразделения, так и компании в целом.</p>
+    <hr/>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+            <div class="feature-icon bg-classic bg-gradient">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
+            </div>
+            <h2>Цель проекта</h2>
+            <p>Увеличить эффективность работы нашей компании путем внедрения лучших идей и предложений.</p>
+        </div>
+        <div class="feature col">
+            <div class="feature-icon bg-classic bg-gradient">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
+            </div>
+            <h2>Как это работает</h2>
+            <p>Если у вас есть идея и вы хотите ей поделиться - смело заполняйте форму ниже. Автор идеи, которая будет внедрена в работу получит <strong>денежный приз 5000р!</strong></p>
+        </div>
+        <div class="feature col">
+            <div class="feature-icon bg-classic bg-gradient">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+            </div>
+            <h2>Важно</h2>
+            <p>Идей может быть сколько угодно, но по каждой нужно заполнить отдельную форму. <strong>Количество призов не ограничено.</strong></p>
+        </div>
+    </div>
+    <hr/>
+    <div class="text-center">
+        <form th:method="GET" th:action="@{/new}">
+            <input type="submit" class="btn-lg btn btn-outline-primary" value="Предложить идею">
+        </form>
+        <p class="mt-3 mb-3 text-muted">&copy; Мокрый Нос, 2024</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
