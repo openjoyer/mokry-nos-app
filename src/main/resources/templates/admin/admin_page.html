@@ -45,12 +45,32 @@
         color: #fff;
         background-color: #B41D92;
     }
-    .sprava {
-        display:inline-block;
-        white-space:nowrap;
-        position: absolute;
-        right: 0;
-        text-align: center;
+    @media screen and (max-width: 500px){
+        .sprava {
+            margin-top: 20px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .centered-tab {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #example, #example2 {
+            font-size: smaller;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    @media screen and (width > 500px){
+        .sprava {
+            display:inline-block;
+            white-space:nowrap;
+            position: absolute;
+            right: 0;
+            text-align: center;
+        }
     }
 
     body {
@@ -76,10 +96,10 @@
 <body class="container">
     <div class="container">
         <div class="tab">
-            <input checked id="tab-btn-1" name="tab-btn" type="radio" value="">
-            <label for="tab-btn-1">Все сообщения</label>
-            <input id="tab-btn-2" name="tab-btn" type="radio" value="">
-            <label for="tab-btn-2">Избранное</label>
+            <input class="centered-tab" checked id="tab-btn-1" name="tab-btn" type="radio" value="">
+            <label class="centered-tab" for="tab-btn-1">Все сообщения</label>
+            <input class="centered-tab" id="tab-btn-2" name="tab-btn" type="radio" value="">
+            <label class="centered-tab" for="tab-btn-2">Избранное</label>
             <div class="sprava col-md-3 text-end">
                 <form th:action="@{/admin/sort}" th:method="GET" th:object="${sortChoice}">
                     <ul class="nav nav-pills">
@@ -105,11 +125,12 @@
             </div>
 
             <div class="tab-content" id="content-1">
+                <h1 class="centered-tab">Все сообщения</h1>
                 <div th:if="${messages.isEmpty()}">
                     <p>Нет сообщений</p>
                 </div>
-                <div th:if="${!messages.isEmpty()}" class="m-auto col-lg-10 mt-5 mb-5">
-                    <table id="example" class="table table-striped" style="width: 100%">
+                <div id="example" th:if="${!messages.isEmpty()}" class="m-auto col-lg-10 mt-5 mb-5">
+                    <table class="table table-striped" style="width: 100%">
                         <thead style="border-bottom: black">
                         <tr>
                             <th>#</th>
@@ -133,12 +154,13 @@
             </div>
 
             <div class="tab-content" id="content-2">
+                <h1 class="centered-tab">Избранное</h1>
                 <div th:if="${liked.isEmpty()}">
                     <p>В избранном нет сообщений</p>
                 </div>
-                <div th:if="${!liked.isEmpty()}" class="m-auto col-lg-10 mt-5 mb-5">
-                    <table id="example2" class="table table-striped" style="width: 100%">
-                        <thead>
+                <div id="example2" th:if="${!liked.isEmpty()}" class="m-auto col-lg-10 mt-5 mb-5">
+                    <table class="table table-striped" style="width: 100%">
+                        <thead style="border-bottom: black">
                         <tr>
                             <th>#</th>
                             <th>Имя</th>
