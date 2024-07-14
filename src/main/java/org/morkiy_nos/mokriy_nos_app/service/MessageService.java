@@ -6,27 +6,26 @@ import org.morkiy_nos.mokriy_nos_app.repository.MessageRepository;
 import org.morkiy_nos.mokriy_nos_app.util.Sort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class MessageService {
-    private MessageRepository messageRepository;
+    private final MessageRepository messageRepository;
 
     @Autowired
     public MessageService(MessageRepository messageRepository) {
         this.messageRepository = messageRepository;
     }
 
+    @Transactional
     public void save(Message message) {
         message.setMarked(false);
         message.setCreatedDate(LocalDateTime.now());
         messageRepository.save(message);
-    }
-
-    public boolean existsById(int id) {
-        return messageRepository.existsById(id);
     }
 
     public Message getMessageById(int id) {
@@ -63,6 +62,7 @@ public class MessageService {
                 org.springframework.data.domain.Sort.by(direction, "createdDate"));
     }
 
+    @Transactional
     public void like(int id) {
         Message message = messageRepository.findById(id).orElse(null);
         if(message != null) {
@@ -75,7 +75,7 @@ public class MessageService {
         return messageRepository.findByIsMarked(true);
     }
 
-
+    @Transactional
     public void delete(int id) {
         messageRepository.deleteById(id);
     }
