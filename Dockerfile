@@ -1,12 +1,6 @@
-FROM maven:3.8.4-openjdk-24-slim as builder
-LABEL authors="tylerpants"
-
+FROM openjdk:24-jdk-slim
 WORKDIR /app
-COPY . /app/.
-RUN mvn -f /app/pom.xml clean package -Dmaven.test.skip=true
+COPY /target/mokriy-nos-app-1.0.0-SNAPSHOT.jar /app/nos-app.jar
 
-FROM eclipse-temurin:17-jre-alpine
-WORKDIR /app
-COPY --from=builder /app/target/*.jar /app/*.jar
 EXPOSE 8181
-ENTRYPOINT ["java", "-jar", "/app/*.jar"]
+ENTRYPOINT ["java", "-jar", "nos-app.jar"]
