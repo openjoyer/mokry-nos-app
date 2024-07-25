@@ -16,9 +16,9 @@ public interface MessageRepository extends JpaRepository<Message, Integer> {
 
     List<Message> findByType(@NotNull(message = "Выберите опцию") MessageType type, Sort sort);
 
-    List<Message> findByIsMarked(boolean isMarked);
+    List<Message> findByMarked(boolean marked);
 
-    List<Message> findByIsMarked(boolean isMarked, Sort sort);
+    List<Message> findByMarked(boolean marked, Sort sort);
 
-    List<Message> findByIsMarkedAndType(boolean isMarked,@NotNull(message = "Выберите опцию") MessageType type, Sort sort);
+    List<Message> findByMarkedAndType(boolean marked, @NotNull(message = "Выберите опцию") MessageType type, Sort sort);
 }

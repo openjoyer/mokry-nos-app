@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @NotNull(message = "Выберите опцию")
     @Enumerated(EnumType.ORDINAL)
@@ -29,6 +29,7 @@ public class Message {
     @Length(max = 50, message = "Максимум - 50 символов")
     private String title;
 
+    @Column(name = "text")
     @NotEmpty(message = "Это поле обязательно")
     @Length(max = 1000, message = "Текст должен быть до 1000 символов")
     private String text;
@@ -43,5 +44,5 @@ public class Message {
 
     @Column(name = "is_marked")
     @Convert(converter = NumericBooleanConverter.class)
-    private boolean isMarked;
+    private Boolean marked;
 }

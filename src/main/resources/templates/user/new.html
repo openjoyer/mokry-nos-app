@@ -20,7 +20,7 @@
         </div>
 
         <div class="text-start div-container form-group">
-            <label for="t">Раздел: </label>
+            <label for="t">Направление: </label>
             <select id="t" class="form-select" th:object="${message}" th:field="*{type}">
                 <option th:each="t : ${types}"
                     th:value="${t}"

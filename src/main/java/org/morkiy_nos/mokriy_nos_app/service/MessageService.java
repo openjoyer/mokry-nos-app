@@ -56,9 +56,9 @@ public class MessageService {
                 org.springframework.data.domain.Sort.Direction.ASC :
                 org.springframework.data.domain.Sort.Direction.DESC;
         if(choice.getValue().equalsIgnoreCase("Все")) {
-            return messageRepository.findByIsMarked(true, org.springframework.data.domain.Sort.by(direction, "createdDate"));
+            return messageRepository.findByMarked(true, org.springframework.data.domain.Sort.by(direction, "createdDate"));
         }
-        return messageRepository.findByIsMarkedAndType(true, MessageType.valueOf(choice.getValue()),
+        return messageRepository.findByMarkedAndType(true, MessageType.valueOf(choice.getValue()),
                 org.springframework.data.domain.Sort.by(direction, "createdDate"));
     }
 
@@ -66,13 +66,13 @@ public class MessageService {
     public void like(int id) {
         Message message = messageRepository.findById(id).orElse(null);
         if(message != null) {
-            message.setMarked(!message.isMarked());
+            message.setMarked(!message.getMarked());
             messageRepository.save(message);
         } else throw new IllegalArgumentException("We dont have message dude");
     }
 
     public List<Message> getAllLiked() {
-        return messageRepository.findByIsMarked(true);
+        return messageRepository.findByMarked(true);
     }
 
     @Transactional
