@@ -17,10 +17,11 @@ services:
 
   service-db:
     image: mysql:8.0.27
+    hostname: service_db
     environment:
       MYSQL_ROOT_PASSWORD: 1234
       MYSQL_DATABASE: mokriy_nos_app_db
- #     MYSQL_USER: root
+    #  MYSQL_USER: mnos
       MYSQL_PASSWORD: 1234
     ports:
       - "3306:3306"
