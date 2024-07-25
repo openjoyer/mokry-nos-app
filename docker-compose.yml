@@ -4,31 +4,39 @@ services:
   app:
     build: .
     environment:
-      SERVER_PORT: 8081
-      SPRING_DATASOURCE_URL: jdbc:mysql://service_db:3306/mokriy_nos_app_db
+      SERVER_PORT: 8881
+      SPRING_DATASOURCE_URL: jdbc:mysql://service_db:5406/mokriy-nos-app-db
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: 1234
     volumes:
       - ./target/mokriy-nos-app-1.0.0-SNAPSHOT.jar:/nos-app.jar
     ports:
-      - "8811:8081"
+      - "8881:8881"
     depends_on:
       - service-db
+    networks:
+      - net
 
   service-db:
     image: mysql:8.0.27
     environment:
       MYSQL_ROOT_PASSWORD: 1234
-      MYSQL_DATABASE: mokriy_nos_app_db
- #     MYSQL_USER: root
+      MYSQL_DATABASE: mokriy-nos-app-db
+#      MYSQL_USER: root
       MYSQL_PASSWORD: 1234
     ports:
-      - "3306:3306"
+      - "5406:5406"
     volumes:
       - ./db_data:/var/lib/mysql
       - ./dump_db/dump.sql:/docker-entrypoint-initdb.d/dump.sql
     restart: always
+    networks:
+      - net
 
 volumes:
   mysql-data:
     driver: local
+
+networks:
+  net:
+    driver: bridge

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.morkiy_nos.mokriy_nos_app.MokriyNosAppApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.685 s -- in org.morkiy_nos.mokriy_nos_app.MokriyNosAppApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.434 s -- in org.morkiy_nos.mokriy_nos_app.MokriyNosAppApplicationTests
