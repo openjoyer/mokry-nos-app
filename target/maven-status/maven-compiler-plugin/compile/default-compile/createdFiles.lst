@@ -1,0 +1,15 @@
+org\morkiy_nos\mokriy_nos_app\util\Sort.class
+org\morkiy_nos\mokriy_nos_app\util\MessageValidator.class
+org\morkiy_nos\mokriy_nos_app\controller\UserController.class
+org\morkiy_nos\mokriy_nos_app\security\AppUserDetails.class
+org\morkiy_nos\mokriy_nos_app\model\User.class
+org\morkiy_nos\mokriy_nos_app\model\MessageType.class
+org\morkiy_nos\mokriy_nos_app\service\UserService.class
+org\morkiy_nos\mokriy_nos_app\MokriyNosApplication.class
+org\morkiy_nos\mokriy_nos_app\repository\MessageRepository.class
+org\morkiy_nos\mokriy_nos_app\service\MessageService.class
+org\morkiy_nos\mokriy_nos_app\repository\UserRepository.class
+org\morkiy_nos\mokriy_nos_app\service\AppUserDetailsService.class
+org\morkiy_nos\mokriy_nos_app\model\Message.class
+org\morkiy_nos\mokriy_nos_app\controller\AdminController.class
+org\morkiy_nos\mokriy_nos_app\security\SecurityConfig.class
