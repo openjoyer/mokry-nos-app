@@ -8,7 +8,7 @@
             <column name="type" type="int">
                 <constraints nullable="false"/>
             </column>
-            <column name="title" type="varchar(50)">
+            <column name="title" type="varchar(1000)">
                 <constraints nullable="false" unique="true" />
             </column>
             <column name="text" type="varchar(1000)">

@@ -26,7 +26,7 @@ public class Message {
 
     @Column(name = "title")
     @NotEmpty(message = "Это поле обязательно")
-    @Length(max = 50, message = "Максимум - 50 символов")
+    @Length(max = 1000, message = "Текст должен быть до 1000 символов")
     private String title;
 
     @Column(name = "text")

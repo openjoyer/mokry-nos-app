@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `messages`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `messages` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(50) NOT NULL,
+  `title` varchar(1000) NOT NULL,
   `type` int NOT NULL,
   `text` varchar(1000) NOT NULL,
   `created_date` timestamp NULL DEFAULT NULL,
