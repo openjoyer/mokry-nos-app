@@ -5,7 +5,6 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
-import org.hibernate.annotations.Type;
 import org.hibernate.type.NumericBooleanConverter;
 import org.hibernate.validator.constraints.Length;
 
@@ -26,7 +25,7 @@ public class Message {
 
     @Column(name = "title")
     @NotEmpty(message = "Это поле обязательно")
-    @Length(max = 1000, message = "Текст должен быть до 1000 символов")
+    @Length(max = 500, message = "Текст должен быть до 500 символов")
     private String title;
 
     @Column(name = "text")

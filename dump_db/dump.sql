@@ -24,12 +24,12 @@ DROP TABLE IF EXISTS `messages`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `messages` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(1000) NOT NULL,
-  `type` int NOT NULL,
+  `title` varchar(500) NOT NULL,
+  `type` tinyint NOT NULL,
   `text` varchar(1000) NOT NULL,
   `created_date` timestamp NULL DEFAULT NULL,
   `person_name` varchar(100) NOT NULL,
-  `is_marked` tinyint(1) DEFAULT NULL,
+  `is_marked` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `title` (`title`)
@@ -42,7 +42,7 @@ CREATE TABLE `messages` (
 
 LOCK TABLES `messages` WRITE;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
-INSERT INTO `messages` VALUES (1,'ÐŸÑ€Ð¸Ð¼ÐµÑ€ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ',2,'ÐŸÑ€Ð¸ Ð½ÐµÐ½Ð°Ð´Ð¾Ð±Ð½Ð¾ÑÑ‚Ð¸ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ','2024-07-24 17:08:16','Ð˜Ð²Ð°Ð½Ð¾Ð² Ð˜Ð²Ð°Ð½',0),(2,'sda',1,'dsa','2024-07-26 04:09:07','dsa dsfa',0),(3,'бла ',1,'аыволдрфалор\r\n','2024-07-26 04:13:59','бла бла',0);
+INSERT INTO `messages` VALUES (2,'sda',1,'dsa','2024-07-26 04:09:07','dsa dsfa',0),(3,'бла ',1,'аыволдрфалор\r\n','2024-07-26 04:13:59','бла бла',0);
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
