@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog">
-    <include file="create-users.xml" relativeToChangelogFile="true" />
-    <include file="create-messages.xml" relativeToChangelogFile="true" />
-    <include file="insert-user.xml" relativeToChangelogFile="true" />
-</databaseChangeLog>
