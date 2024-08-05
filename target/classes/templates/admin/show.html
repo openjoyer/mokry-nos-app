@@ -66,9 +66,6 @@
     <div class="text-center container">
         <h2 th:text="'Сообщение №' + ${message.getId()}"></h2>
         <div class="text-start div-container form-group">
-            <p class="form-control" th:text="'Тема: ' + ${message.getTitle()}"></p>
-        </div>
-        <div class="text-start div-container form-group">
             <p class="form-control" th:text="'Автор: ' + ${message.getPersonName()}"></p>
         </div>
         <div class="text-start div-container form-group">
@@ -77,6 +74,11 @@
         <div class="text-start div-container form-group">
             <p class="form-control" th:text="'Дата и время создания: ' + ${message.getCreatedDate().toString().replace('T', ', ')}"></p>
         </div>
+        <div class="text-start div-container form-group">
+            <label>
+                <textarea class="form-control" cols="71" rows="14" readonly="readonly" th:text="${message.getTitle()}"></textarea>
+            </label>
+            </div>
         <div class="text-start div-container form-group">
             <label>
                 <textarea class="form-control" cols="71" rows="14" readonly="readonly" th:text="${message.getText()}"></textarea>

@@ -104,13 +104,13 @@
                 <form th:action="@{/admin/sort}" th:method="GET" th:object="${sortChoice}">
                     <ul class="nav nav-pills">
                         <li class="nav-item">
-                            <select class="form-select" id="date" th:object="${sortChoice}" th:field="*{date}">
+                            <label for="date"></label><select class="form-select" id="date" th:object="${sortChoice}" th:field="*{date}">
                                 <option th:value="'old'" th:text="'Сначала старые'"></option>
                                 <option th:value="'new'" th:text="'Сначала новые'"></option>
                             </select>
                         </li>
                         <li class="nav-item">
-                            <select class="form-select" id="sort" th:object="${sortChoice}" th:field="*{value}">
+                            <label for="sort"></label><select class="form-select" id="sort" th:object="${sortChoice}" th:field="*{value}">
                                 <option th:value="'Все'" th:text="'Все'"></option>
                                 <option th:each="sort : ${sorts}"
                                         th:value="${sort}"
@@ -144,7 +144,7 @@
                         <tr class="my-tr" th:id="${m.getId()}" th:each="m : ${messages}" th:onclick="'location.href=\'/admin/'+${m.getId()}+'\''">
                             <td th:text="${m.getId()}">ID</td>
                             <td th:text="${m.personName}">Имя</td>
-                            <td th:text="${m.title}">Тема</td>
+                            <td th:text="${m.getTitle().substring(0, 50)}+ '...'">Тема</td>
                             <td th:text="${m.type.toString()}"></td>
                             <td th:text="${m.getCreatedDate().toString().replace('T', ', ')}">Start date</td>
                         </tr>
@@ -173,7 +173,7 @@
                         <tr class="my-tr" th:each="m : ${liked}" th:onclick="'location.href=\'/admin/'+${m.getId()}+'\''"   >
                             <td th:text="${m.getId()}">ID</td>
                             <td th:text="${m.personName}">Имя</td>
-                            <td th:text="${m.title}">Тема</td>
+                            <td th:text="${m.getTitle().substring(0, 50)}+ '...'">Тема</td>
                             <td th:text="${m.type.toString()}"></td>
                             <td th:text="${m.getCreatedDate().toString().replace('T', ', ')}">Start date</td>
                         </tr>
